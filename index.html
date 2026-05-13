@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Sales Machine - Conversion System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">⚡ Sales Machine</div>
+      <div class="nav-links">
+        <a href="#home" class="nav-link active" data-section="home">Home</a>
+        <a href="#dashboard" class="nav-link" data-section="dashboard">Dashboard</a>
+        <a href="#settings" class="nav-link" data-section="settings">Settings</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HOME SECTION -->
+  <section id="home-section" class="section active">
+    <div class="container">
+      <div class="badge">AI SALES SYSTEM</div>
+      <h1>Turn Attention Into Income</h1>
+      <p class="sub">
+        A conversion machine built to transform clicks into revenue. Track every visitor, every click, every dollar.
+      </p>
+
+      <!-- EMAIL CAPTURE FORM -->
+      <div class="form-container">
+        <div class="form-card">
+          <h3>Get Instant Access</h3>
+          <form id="emailForm" class="email-form">
+            <input type="email" id="emailInput" placeholder="you@example.com" required>
+            <button type="submit" class="btn-primary">Claim Access Now</button>
+          </form>
+          <p class="form-note">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+
+      <!-- INFO CARDS -->
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <h2>What This Is</h2>
+          <p>A structured conversion system optimized for turning attention into revenue, not fluff.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">⚙️</div>
+          <h2>How It Works</h2>
+          <p>Traffic → Landing Page → Email → Offer → Revenue. Simple, proven, measurable.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h2>Real-Time Tracking</h2>
+          <p>See conversions, clicks, and revenue in real time. No guessing. Just numbers.</p>
+        </div>
+      </div>
+
+      <footer>
+        <p>Built for rapid deployment on Netlify</p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- DASHBOARD SECTION -->
+  <section id="dashboard-section" class="section">
+    <div class="container dashboard-container">
+      <h1>Conversion Dashboard</h1>
+      
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">Total Visitors</div>
+          <div class="metric-value" id="visitorCount">0</div>
+          <div class="metric-trend">↑ Tracking live</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Email Captures</div>
+          <div class="metric-value" id="captureCount">0</div>
+          <div class="metric-trend">↑ Growing</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Conversion Rate</div>
+          <div class="metric-value" id="conversionRate">0%</div>
+          <div class="metric-trend">Target: 5%+</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Estimated Revenue</div>
+          <div class="metric-value" id="revenueEst">$0</div>
+          <div class="metric-trend">At $97/sale</div>
+        </div>
+      </div>
+
+      <!-- CHART -->
+      <div class="chart-container">
+        <h2>Conversion Trend (Last 7 Days)</h2>
+        <canvas id="conversionChart"></canvas>
+      </div>
+
+      <!-- RECENT CAPTURES -->
+      <div class="captures-container">
+        <h2>Recent Email Captures</h2>
+        <div id="capturesList" class="captures-list">
+          <p class="empty-state">No captures yet. Share your link to start tracking!</p>
+        </div>
+      </div>
+
+      <!-- CTA BUTTON -->
+      <div class="dashboard-cta">
+        <button id="copyLinkBtn" class="btn-primary">Copy Tracking Link</button>
+        <p id="linkFeedback" class="link-feedback"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SETTINGS SECTION -->
+  <section id="settings-section" class="section">
+    <div class="container settings-container">
+      <h1>Campaign Settings</h1>
+      
+      <div class="settings-card">
+        <h2>Offer Details</h2>
+        <div class="form-group">
+          <label>Product Name</label>
+          <input type="text" id="productName" placeholder="My Digital Product" value="Digital Sales Machine">
+        </div>
+        <div class="form-group">
+          <label>Sale Price ($)</label>
+          <input type="number" id="salePrice" placeholder="97" value="97" min="0">
+        </div>
+        <div class="form-group">
+          <label>Gumroad Link</label>
+          <input type="url" id="gumroadLink" placeholder="https://gumroad.com/your-product" value="https://gumroad.com/your-product">
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <h2>Data Management</h2>
+        <button id="exportBtn" class="btn-secondary">Export Data as CSV</button>
+        <button id="clearBtn" class="btn-danger">Clear All Data</button>
+      </div>
+
+      <div class="settings-card">
+        <h2>Campaign Status</h2>
+        <label class="toggle-switch">
+          <input type="checkbox" id="campaignActive" checked>
+          <span>Campaign Active</span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,646 @@
+/* ============================================
+   SALES MACHINE - MODERN DARK THEME
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #4f7cff;
+  --secondary: #ff6b6b;
+  --dark-bg: #0b0f19;
+  --card-bg: #121a2a;
+  --card-border: #1f2a44;
+  --text-primary: #ffffff;
+  --text-secondary: #a0aec0;
+  --success: #48bb78;
+  --warning: #ed8936;
+  --danger: #f56565;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, #0f1420 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 15, 25, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--card-border);
+  padding: 1rem 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* ============================================
+   SECTIONS & LAYOUT
+   ============================================ */
+
+.section {
+  display: none;
+  animation: fadeIn 0.5s ease-in;
+  min-height: calc(100vh - 60px);
+}
+
+.section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* ============================================
+   HOME SECTION
+   ============================================ */
+
+.badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, var(--card-border), var(--card-bg));
+  border: 1px solid var(--primary);
+  border-radius: 25px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  color: var(--primary);
+  animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideDown 0.8s ease-out 0.1s backwards;
+}
+
+.sub {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  line-height: 1.6;
+  animation: slideDown 0.8s ease-out 0.2s backwards;
+}
+
+/* ============================================
+   FORMS & INPUT
+   ============================================ */
+
+.form-container {
+  margin: 3rem 0;
+  animation: slideDown 0.8s ease-out 0.3s backwards;
+}
+
+.form-card {
+  background: linear-gradient(135deg, var(--card-bg), #151f2f);
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.form-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="url"],
+input[type="number"] {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(79, 124, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.1);
+}
+
+.form-note {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), #3d5ce8);
+  color: white;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(79, 124, 255, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--card-bg);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: white;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.btn-danger:hover {
+  opacity: 0.9;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 25px;
+  background: linear-gradient(135deg, var(--primary), #3d5ce8);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: var(--transition);
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(79, 124, 255, 0.3);
+}
+
+/* ============================================
+   CARDS GRID
+   ============================================ */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.card {
+  background: linear-gradient(135deg, var(--card-bg), #151f2f);
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: var(--transition);
+  animation: slideUp 0.6s ease-out backwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.3s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  border-color: var(--primary);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(79, 124, 255, 0.15);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ============================================
+   DASHBOARD METRICS
+   ============================================ */
+
+.dashboard-container {
+  padding: 40px 20px;
+}
+
+.dashboard-container h1 {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, var(--card-bg), #151f2f);
+  border: 1px solid var(--card-border);
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.metric-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(79, 124, 255, 0.1);
+}
+
+.metric-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.metric-trend {
+  font-size: 0.8rem;
+  color: var(--success);
+}
+
+/* ============================================
+   CHART CONTAINER
+   ============================================ */
+
+.chart-container {
+  background: linear-gradient(135deg, var(--card-bg), #151f2f);
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.chart-container h2 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+#conversionChart {
+  max-height: 300px;
+}
+
+/* ============================================
+   CAPTURES LIST
+   ============================================ */
+
+.captures-container {
+  background: linear-gradient(135deg, var(--card-bg), #151f2f);
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.captures-container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.captures-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.capture-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--card-border);
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.capture-email {
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.capture-time {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem;
+}
+
+/* ============================================
+   DASHBOARD CTA
+   ============================================ */
+
+.dashboard-cta {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.link-feedback {
+  color: var(--success);
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   SETTINGS
+   ============================================ */
+
+.settings-container {
+  padding: 40px 20px;
+}
+
+.settings-container h1 {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.settings-card {
+  background: linear-gradient(135deg, var(--card-bg), #151f2f);
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.settings-card h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.toggle-switch input {
+  width: 50px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ============================================
+   TOAST NOTIFICATIONS
+   ============================================ */
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  background: var(--success);
+  color: white;
+  border-radius: 8px;
+  display: none;
+  animation: slideUp 0.3s ease-out;
+  z-index: 1000;
+}
+
+.toast.show {
+  display: block;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .sub {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .container {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .email-form {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+}
